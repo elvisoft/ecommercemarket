@@ -13,19 +13,19 @@ const SocialShare = ({ slug }: { slug: { current: string } }) => {
   return (
     <div className="flex gap-3">
       <FacebookShareButton
-        url={`${process.env.NEXT_PUBLIC_SITE_URL}/blogs/${slug.current}`}
+        url='/#'
       >
         <FacebookIcon size={35} round={true} />
       </FacebookShareButton>
 
       <TwitterShareButton
-        url={`${process.env.NEXT_PUBLIC_SITE_URL}/blogs/${slug.current}`}
+         url='/#'
       >
         <TwitterIcon size={35} round={true} />
       </TwitterShareButton>
 
       <LinkedinShareButton
-        url={`${process.env.NEXT_PUBLIC_SITE_URL}/blogs/${slug.current}`}
+         url='/#'
       >
         <LinkedinIcon size={35} round={true} />
       </LinkedinShareButton>
