@@ -35,7 +35,7 @@ export default function SingleProductResult({
           {!isProduct ? (
             <div>
               <Highlight
-                className="mt-2 line-clamp-2 text-sm leading-normal text-body-color"
+                classNames={{root:"mt-2 line-clamp-2 text-sm leading-normal text-body-color"}}
                 attribute="shortDescription"
                 hit={hit}
               />
