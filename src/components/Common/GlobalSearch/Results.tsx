@@ -13,7 +13,7 @@ const Results = (props: any) => {
             <h2 className="mb-2 text-xl text-dark font-bold">Products</h2>
           )}
           <Hits
-            className={"result-links w-full"}
+            classNames={{root:"result-links w-full"}}
             hitComponent={(props) => {
               return (
                 props?.hit?.type === "products" && (
@@ -39,7 +39,7 @@ const Results = (props: any) => {
             <h2 className="mb-2 text-xl text-dark font-bold">Blogs</h2>
           )}
           <Hits
-            className={"result-links w-full"}
+            classNames={{root:"result-links w-full"}}
             hitComponent={(props) => {
               return (
                 props?.hit?.type === "blogs" && (
