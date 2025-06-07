@@ -24,12 +24,13 @@ const BlogDetailsWithSidebar = ({ blogData }: { blogData: Blog }) => {
             {/* <!-- blog details --> */}
             <div className="lg:max-w-[750px] w-full">
               <div className="rounded-[10px] overflow-hidden mb-7.5">
+                
                 <Image
                   className="rounded-[10px] h-[477px] w-full object-cover"
                   src={
-                    blogData.mainImage
+                    blogData && blogData.mainImage
                       ? imageBuilder(blogData?.mainImage).url()!
-                      : '/no image'
+                      : '/images/noencontro.png'
                   }
                   alt="details"
                   width={750}
@@ -43,12 +44,13 @@ const BlogDetailsWithSidebar = ({ blogData }: { blogData: Blog }) => {
                     href="#"
                     className="ease-out duration-200 hover:text-blue"
                   >
-                    {blogData.publishedAt &&
-                      new Date(blogData.publishedAt)
-                        .toDateString()
-                        .split(' ')
-                        .slice(1)
-                        .join(' ')}
+                    {blogData?.publishedAt
+                      ? new Date(blogData.publishedAt)
+                          .toDateString()
+                          .split(' ')
+                          .slice(1)
+                          .join(' ')
+                      : 'Fecha no disponible'}
                   </Link>
 
                   {/* <!-- divider -`-> */}

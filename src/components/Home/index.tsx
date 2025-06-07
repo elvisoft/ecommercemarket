@@ -10,10 +10,8 @@ import Testimonials from "./Testimonials";
 const Home = () => {
   return (
     <main>
-      <Hero />
-      <Categories />
-      <NewArrival />
-      <PromoBanner />
+      <Hero />          
+     <h1>Cursos de programacion</h1>
       <BestSeller />
       <CountDown />
       <Testimonials />

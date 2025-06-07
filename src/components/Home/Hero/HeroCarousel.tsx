@@ -61,7 +61,7 @@ const HeroCarousal = ({ sliders }: any) => {
                 src={
                   slider?.image
                     ? imageBuilder(slider?.image).url()!
-                    : "/no image"
+                    : "/images/noencontro.png"
                 }
                 alt="headphone"
                 width={351}

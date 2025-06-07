@@ -22,17 +22,7 @@ const LatestPosts = async () => {
                 href="/blogs/blog-details-with-sidebar"
                 className="max-w-[110px] w-full rounded-[10px] overflow-hidden"
               >
-                <Image
-                  src={
-                    blog.mainImage
-                      ? imageBuilder(blog?.mainImage).url()!
-                      : '/no image'
-                  }
-                  alt="blog"
-                  className="rounded-[10px] w-full h-20"
-                  width={110}
-                  height={80}
-                />
+               
               </Link>
 
               <div>

@@ -1,6 +1,4 @@
 import React from "react";
-import { Hits } from "react-instantsearch";
-import SingleProductResult from "./SingleProductResult";
 
 const Results = (props: any) => {
   const { setSearchModalOpen, filterValue } = props;
@@ -12,24 +10,7 @@ const Results = (props: any) => {
           {filterValue === "all" && (
             <h2 className="mb-2 text-xl text-dark font-bold">Products</h2>
           )}
-          <Hits
-            classNames={{root:"result-links w-full"}}
-            hitComponent={(props) => {
-              return (
-                props?.hit?.type === "products" && (
-                  // <p>
-                  //   {props?.hit?.name}
-                  // </p>
-                  <SingleProductResult
-                    showImage={true}
-                    hit={props?.hit}
-                    setSearchModalOpen={setSearchModalOpen}
-                    isProduct={true}
-                  />
-                )
-              );
-            }}
-          />
+          
         </>
       )}
 
@@ -38,21 +19,7 @@ const Results = (props: any) => {
           {filterValue === "all" && (
             <h2 className="mb-2 text-xl text-dark font-bold">Blogs</h2>
           )}
-          <Hits
-            classNames={{root:"result-links w-full"}}
-            hitComponent={(props) => {
-              return (
-                props?.hit?.type === "blogs" && (
-                  <SingleProductResult
-                    showImage={true}
-                    hit={props?.hit}
-                    setSearchModalOpen={setSearchModalOpen}
-                    isProduct={false}
-                  />
-                )
-              );
-            }}
-          />
+          
         </>
       )}
     </div>

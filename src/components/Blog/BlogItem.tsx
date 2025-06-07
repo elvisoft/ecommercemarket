@@ -13,7 +13,7 @@ const BlogItem = ({ blog }: { blog: Blog }) => {
       >
         <Image
           src={
-            blog.mainImage ? imageBuilder(blog?.mainImage).url()! : '/no image'
+            blog.mainImage ? imageBuilder(blog?.mainImage).url()! : '/images/noencontro.png'
           }
           alt="blog"
           className="rounded-md w-full h-[210px] object-cover"

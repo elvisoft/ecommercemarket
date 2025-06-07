@@ -3,7 +3,6 @@ import { type NextRequest, NextResponse } from "next/server";
 import { parseBody } from "next-sanity/webhook";
 import { imageBuilder } from "@/sanity/sanity-shop-utils";
 import { getCategoryById } from "@/sanity/sanity-shop-utils";
-import { updateIndex } from "@/algolia/crawlIndex";
 
 export async function POST(req: NextRequest) {
   try {
@@ -68,7 +67,7 @@ export async function POST(req: NextRequest) {
     };
 
     if (body.name !== "" || body?.name === undefined) {
-      await updateIndex(data);
+      //await updateIndex(data);
     }
 
     return NextResponse.json({

@@ -25,7 +25,7 @@ const LatestProducts = async () => {
                     src={
                       product?.thumbnails
                         ? imageBuilder(product.thumbnails?.[0].image).url()!
-                        : "/no image"
+                        : "/images/noencontro.png"
                     }
                     alt="product"
                     width={74}

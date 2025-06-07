@@ -20,17 +20,7 @@ const BlogDetails = ({ blogData }: { blogData: Blog }) => {
         {blogData ? (
           <div className="max-w-[750px] w-full mx-auto px-4 sm:px-8 xl:px-0">
             <div className="rounded-[10px] overflow-hidden mb-7.5">
-              <Image
-                className="rounded-[10px] h-[477px] w-full object-cover"
-                src={
-                  blogData.mainImage
-                    ? imageBuilder(blogData?.mainImage).url()!
-                    : '/no image'
-                }
-                alt="details"
-                width={750}
-                height={477}
-              />
+              
             </div>
 
             <div>

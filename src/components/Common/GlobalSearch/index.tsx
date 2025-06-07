@@ -1,15 +1,5 @@
 import { XIcon } from '@/assets/icons';
-import algoliasearch from 'algoliasearch';
 import { useEffect, useRef, useState } from 'react';
-import { InstantSearch, SearchBox } from 'react-instantsearch';
-import Results from './Results';
-import SearchFilter from './SearchFilter';
-
-const algoliaAppId = 'ZZKP57Y4D6';
-const algoliaSearchApiKey = 'e5f077f6fa66c6a4a3d2f89447f12594';
-const algoliaIndexName = 'dev_product';
-
-const algoliaClient = algoliasearch(algoliaAppId, algoliaSearchApiKey);
 
 const GlobalSearchModal = (props: any) => {
   const { searchModalOpen, setSearchModalOpen, currentFilter } = props;
@@ -50,43 +40,7 @@ const GlobalSearchModal = (props: any) => {
             </button>
 
             <div className="h-auto max-h-[calc(100vh-70px)] overflow-y-auto rounded-b-[15px]">
-              <InstantSearch
-                insights={false}
-                searchClient={algoliaClient}
-                indexName={algoliaIndexName}
-              >
-                <SearchBox
-                  placeholder="Type anything to search..."
-                  classNames={{
-                    root: 'rounded-t-[15px] bg-white p-10 pb-3',
-                    form: 'sticky top-0 z-999',
-                    input:
-                      'flex h-[56px] w-full items-center rounded-lg border border-gray-3 pl-12 pr-6 outline-hidden duration-300 focus:border-primary',
-                    submitIcon:
-                      'absolute left-0 top-0 w-[56px] h-[56px] flex items-center justify-center p-5',
-                    reset: 'hidden',
-                    resetIcon: 'hidden',
-                    loadingIndicator: 'hidden',
-                    loadingIcon: 'hidden',
-                  }}
-                />
-
-                <SearchFilter
-                  filterValue={filterValue}
-                  setFilterValue={setFilterValue}
-                />
-
-                <div className="bg-white p-10 pt-7.5">
-                  {/* <EmptyState /> */}
-                  <div className="flex flex-wrap -mx-4">
-                    <Results
-                      {...props}
-                      filterValue={filterValue}
-                      setFilterValue={setFilterValue}
-                    />
-                  </div>
-                </div>
-              </InstantSearch>
+             
             </div>
           </div>
         </div>

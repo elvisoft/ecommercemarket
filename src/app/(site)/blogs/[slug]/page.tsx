@@ -1,4 +1,3 @@
-import { structuredAlgoliaHtmlData } from '@/algolia/crawlIndex';
 import BlogDetails from '@/components/BlogDetails';
 import { getPost, getPosts } from '@/sanity/sanity-blog-utils';
 import { imageBuilder } from '@/sanity/sanity-shop-utils';
@@ -54,14 +53,16 @@ export async function generateMetadata({ params }: Params) {
         description: post.metadata,
         url: `${siteURL}/posts/${post?.slug?.current}`,
         siteName: 'NextMerce',
-        images: [
-          {
-            url: imageBuilder(post.mainImage).url(),
-            width: 1800,
-            height: 1600,
-            alt: post.title,
-          },
-        ],
+        images: post.mainImage
+          ? [
+              {
+                url: imageBuilder(post.mainImage).url(),
+                width: 1800,
+                height: 1600,
+                alt: post.title,
+              },
+            ]
+          : [],
         locale: 'en_US',
         type: 'article',
       },
@@ -72,7 +73,7 @@ export async function generateMetadata({ params }: Params) {
         description: `${post.metadata?.slice(0, 136)}...`,
         creator: '@NextMerce',
         site: '@NextMerce',
-        images: [imageBuilder(post?.mainImage).url()],
+        images: post.mainImage ? [imageBuilder(post.mainImage).url()] : [],
         url: `${siteURL}/blogs/${post?.slug?.current}`,
       },
     };
@@ -87,14 +88,6 @@ export async function generateMetadata({ params }: Params) {
 const BlogDetailsPage = async ({ params }: Params) => {
   const { slug } = await params;
   const post = await getPost(slug);
-
-  await structuredAlgoliaHtmlData({
-    type: 'blogs',
-    title: post?.title || '',
-    htmlString: post?.metadata || '',
-    pageUrl: `${process.env.SITE_URL}/blogs/${post?.slug?.current}`,
-    imageURL: imageBuilder(post?.mainImage).url() as string,
-  });
 
   return (
     <main>

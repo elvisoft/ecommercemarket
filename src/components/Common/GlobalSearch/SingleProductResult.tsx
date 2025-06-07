@@ -1,7 +1,6 @@
 import ReviewStar from "@/components/Shop/ReviewStar";
 import Image from "next/image";
 import Link from "next/link";
-import { Highlight } from "react-instantsearch";
 
 export default function SingleProductResult({
   hit,
@@ -29,16 +28,11 @@ export default function SingleProductResult({
         )}
         <div className="ml-3 w-full">
           <h4 className="text-base font-semibold text-dark duration-300 group-hover:text-blue sm:text-lg">
-            <Highlight attribute="name" hit={hit} />
           </h4>
 
           {!isProduct ? (
             <div>
-              <Highlight
-                classNames={{root:"mt-2 line-clamp-2 text-sm leading-normal text-body-color"}}
-                attribute="shortDescription"
-                hit={hit}
-              />
+            
             </div>
           ) : (
             <div className="flex items-center gap-3">
